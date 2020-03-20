@@ -1,44 +1,98 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DragRacer
 
-## Available Scripts
+## Définition du projet
 
-In the project directory, you can run:
+DragRacer est un jeu de course de voiture en duel.
+Les courses se pratiquent sur une ligne droite courte (400m) ou longue(1000m).
+Il s'agit d'un jeu solo, scripté. Le joueur débutera dans une petite ville russe et parcourera l'Europe et les Etats-Unis pour atteindre le titre suprême de meilleur drag racer au monde.
+Le joueur pourra faire évouler son bolide ou augmenter la taille de son garage pour accueillir de nouveaux bolides.
+Le but est d'en apprendre un peu plus sur le fonctionnement d'une voiture et des forces qui définissent son mouvement.
+Il faudra aussi équilibrer le jeu pour que l'utilisateur y prenne du plaisir. Les mécaniques à sa disposition sont à définir.
 
-### `npm start`
+## Détail Game Design
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Le pilote choisira son nom, sa nationalité, sa difficulté et son véhicule de départ.
+La difficulté est un mélange de compétence et consitence de ses adversaires, d'argent de départ et d'usure de ses pièces et véhicules.
+Le scénario comprendra certains évènements pour rendre chaque partie unique.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+La première voiture doit lui permettre de remporter assez facilement ses premières courses et de pouvoir choisir une nouvelle voiture / un upgrade des composants de sa voiture pour remporter les courses de la première ville et choisir sa futur destination.
 
-### `npm test`
+Les cartes ne suivent pas une continuité fixe:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+a -- b -- d -- e -- h -- i
+  -- c      -- f -- g
 
-### `npm run build`
+Le but étant d'inciter le joueur à relancer une nouvelle partie en effectuant de nouveaux choix.
+Une fois l'histoire complétée, le joueur aura toute fois la possibilité d'aller dans toutes les villes du jeu pour valider les succès. Il rencontrera par défaut des adversaires de son niveau.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Le pilote doit en plus de faire des courses, monter en compétences. Il doit apprendre à maitriser :
+- les différentes technique du pilotage en ligne droite
+- la mécanique de sa voiture
+- la préparation de sa voiture
+- son charisme en choisissant ses courses et adversaires -> sponsoring
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Le pilote peut sois même faire sa mécanique (contre du temps et de la formation) ou le faire en passant par un garage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Design
 
-### `npm run eject`
+### Map
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Une carte à la pokemon ou gran turismo. Un fond de carte vue satellite et des icônes par dessus pour les garages, les course, magasins de pièces, licences.
+Sur la partie haute de l'écran, on doit voir l'heure du jeu, les crédits, un avatar, le niveau, les missions actuelles.
+Sur la partie basse, on aura un menu pour accéder au permis de conduire du joueur (résumé, succès, etc...), 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Course
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Une vue de côté avec les deux voitures.
+Au départ, la ligne de départ affichée et les feux de départ.
+Une mini map pour savoir où on en est.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Magasins de voitures
 
-## Learn More
+Les garages proposent une liste de voitures. Les magasins sont propres à une marque.
+Les voitures sont d'origines et des options sont possibles. La couleur est à définir.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Des garages d'occasions proposent des voitures de différents marques.
+Les voitures vendues sont avec une configuration fixe. L'usure est plus ou moins élevée.
+La couleur est fixe.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Il s'agit donc d'une carousselle avec pour chaque voiture :
+- la photo de la voiture selon un certain profil fixe
+- les caractéristique
+- les pièces
+- le prix
+- la couleur ou choix de la couleur
+- les options
+- le permis nécéssaire
+
+Les voitures non accessibles sont grisées et la lacune pour son achat est justifié par une coloration rouge.
+
+### Garages
+
+Les garages permettent d'entretenir les voitures et d'acheter des pièces pour l'amélioration de la voiture.
+Il y a donc une caisse / comptoir.
+Un menu principal 
+- l'achat de pièces (neuves/occasion)
+- prestations (nettoyage, réparation des pièces) 
+
+## Détail technique
+
+### Modèle physique d'une accéleration de voiture
+
+- Accéleration
+- Grip
+- Puissance / couple d'un moteur
+- Boite de vitesse
+- Boost nitro
+- Aero
+- Poid
+- pression des pneus (chauffe, grip, usure)
+
+### Implémentation des interractions du joueur dans ce modèle physique
+Le joueur aura la possibilité de jouer sur quatre paramètres:
+- chauffe des pneumatiques
+- timing de départ
+- timing de passage des rapports
+- timing d'utilisation de la nitro
+
+### Economie et expèrience
