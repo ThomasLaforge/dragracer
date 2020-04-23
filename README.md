@@ -96,3 +96,38 @@ Le joueur aura la possibilité de jouer sur quatre paramètres:
 - timing d'utilisation de la nitro
 
 ### Economie et expèrience
+
+#### Général
+L'experience se gagne après chacune des courses réalisée.
+L'argent se gagne dans des courses ou à la revente de certaines pièces ou voitures.
+On ne peut pas avoir moins de 0 € sur son compte en banque. On peut faire un crédit pour avoir un peu plus de trésorerie. Mais à chaque fin de mois si le compte est en négatif et qu'un crédit est à rembourser, la partie est terminée.
+Des spnsors permettent de gagner de l'argent à chaque course / chaque mois / selon des résultats sportifs.
+
+#### Début de partie
+Le joueur débute avec une somme d'argent qui lui permet de pouvoir acheter une première voiture (starter).
+
+A la façon Pokemon, il pourra choisir entre 3 voitures:
+- "verte" = electrique
+- "rouge" = essence atmo
+- "bleu" = diesel turbo
+
+Ce choix le place dans un arbre de compétence propre à sa couleur.
+A chaque nouveau niveau validé, il pourra cocher une nouvelle compétence dans son arbre. Il sera possible de changer d'arbre durant sa partie en perdant une compétence. Le niveau maximum doit lui permettre de valider un arbre complet avec 5 possibilités bonus de modifier son arbre.
+
+Capacités par arbre:
+- arbre vert
+  - produire sois même son électricité
+  - réduire la chauffe de la batterie
+  - augmenter la puissance
+  - double crédit (car moins de chance d'imprévu)
+
+- arbre rouge
+  - augmenter la fiabilité
+  - réduire la consommation => poids
+  - augmenter l'indice octane
+  - passer à l'ethanol
+
+- arbre bleu
+  - augmenter le turbo
+  - admission d'air
+  - reprogrammation électronique

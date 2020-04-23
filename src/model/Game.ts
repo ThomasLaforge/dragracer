@@ -1,6 +1,8 @@
 export class Game {
 
-    constructor(){
+    constructor(
+        private startDate = Date.now()
+    ){
         
     }
 

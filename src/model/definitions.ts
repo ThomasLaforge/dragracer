@@ -35,3 +35,9 @@ export interface DriverCharacteristics {
     reflex: number,
     reflexVariation: number
 }
+
+export enum CarFamily {
+    Green,
+    Red, 
+    Blue
+}

@@ -1,0 +1,15 @@
+@import 'colors';
+
+.menu-link {
+    color: $white;
+    padding: 5px;
+    text-align: center;
+
+    .menu-link-title {
+        font-weight: bold;
+    }
+
+    .menu-link-description {
+        font-style: italic;
+    }
+}
